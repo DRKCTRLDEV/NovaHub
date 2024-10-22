@@ -10,35 +10,85 @@ class AppLoader {
     }
 
     setupEventListeners() {
-        this.searchInput.addEventListener('input', () => {
-            this.filterApps();
-        });
+        this.searchInput.addEventListener('input', () => this.filterApps());
     }
 
     setApps(apps) {
-        this.apps = apps;
+        this.apps = this.flattenApps(apps);
         this.renderApps();
+    }
+
+    flattenApps(apps) {
+        if (Array.isArray(apps)) {
+            return apps;
+        }
+        return Object.values(apps).flat();
     }
 
     renderApps(appsToRender = this.apps) {
         const fragment = document.createDocumentFragment();
-        appsToRender.forEach(app => {
-            const button = document.createElement('button');
-            button.className = 'app-button';
-            button.textContent = app.name;
-            button.addEventListener('click', () => window.open(app.url, '_blank'));
-            fragment.appendChild(button);
-        });
+        
+        if (Array.isArray(appsToRender)) {
+            this.renderAppButtons(appsToRender, fragment);
+        } else {
+            this.renderCategorizedApps(appsToRender, fragment);
+        }
+
         this.appContainer.innerHTML = '';
         this.appContainer.appendChild(fragment);
         this.ovl.scrollTop = 0;
     }
 
+    renderAppButtons(apps, fragment) {
+        apps.forEach(app => {
+            const button = this.createAppButton(app);
+            fragment.appendChild(button);
+        });
+    }
+
+    renderCategorizedApps(categorizedApps, fragment) {
+        Object.entries(categorizedApps).forEach(([category, apps]) => {
+            const categoryHeader = document.createElement('h3');
+            categoryHeader.textContent = category;
+            categoryHeader.className = 'app-category';
+            fragment.appendChild(categoryHeader);
+
+            this.renderAppButtons(apps, fragment);
+        });
+    }
+
+    createAppButton(app) {
+        const button = document.createElement('button');
+        button.className = 'app-button';
+        button.textContent = app.name;
+        button.addEventListener('click', () => window.open(app.url, '_blank'));
+        return button;
+    }
+
     filterApps() {
         const searchTerm = this.searchInput.value.toLowerCase().trim();
-        const filteredApps = searchTerm === '' ? this.apps : this.apps.filter(app => 
-            app.name.toLowerCase().includes(searchTerm)
-        );
+        let filteredApps;
+
+        if (Array.isArray(this.apps)) {
+            filteredApps = searchTerm ? this.apps.filter(app => 
+                app.name.toLowerCase().includes(searchTerm)
+            ) : this.apps;
+        } else {
+            filteredApps = {};
+            Object.entries(this.apps).forEach(([category, apps]) => {
+                const filteredCategoryApps = apps.filter(app => 
+                    app.name.toLowerCase().includes(searchTerm) ||
+                    category.toLowerCase().includes(searchTerm)
+                );
+                if (filteredCategoryApps.length > 0) {
+                    filteredApps[category] = filteredCategoryApps;
+                }
+            });
+            if (Object.keys(filteredApps).length === 0 && !searchTerm) {
+                filteredApps = this.apps;
+            }
+        }
+
         this.renderApps(filteredApps);
     }
 }
@@ -62,34 +112,59 @@ document.addEventListener('DOMContentLoaded', async () => {
         { name: "Shell Shockers", url: "https://algebra.monster" },
         { name: "slither.io", url: "https://slither.io" },
         { name: "Zombs Royale", url: "https://zombsroyale.io" },
-        { name: "Minesweeper", url: "https://minesweeper.online/" },
+        { name: "Minesweeper", url: "https://github.com/DRKCTRL" },
         { name: "Sudoku", url: "https://sudoku.com/" },
     ];
 
-    const utilsData = [
-        { name: "ImageResizer", url: "https://imageresizer.com/" },
-        { name: "Photopea", url: "https://www.photopea.com/" },
-        { name: "Squoosh", url: "https://squoosh.app/" },
-        { name: "Blackbox AI", url: "https://blackbox.ai/" },
-        { name: "Canva", url: "https://www.canva.com/" },
-        { name: "GeoGebra", url: "https://www.geogebra.org/calculator" },
-        { name: "Pixlr", url: "https://pixlr.com/" },
-        { name: "Wikipedia", url: "https://www.wikipedia.org/" },
-        { name: "Archive.org", url: "https://archive.org/" },
-        { name: "Wiby", url: "https://wiby.me/" },
-        { name: "PrivNote", url: "https://privnote.com/" },
-        { name: "Downfor.io", url: "https://downfor.io/" },
-        { name: "Desmos Graphing Calculator", url: "https://www.desmos.com/calculator" },
-        { name: "Scribens", url: "https://www.scribens.com/" },
-        { name: "Mathway", url: "https://www.mathway.com/Algebra" },
-        { name: "Color Picker", url: "https://colorpicker.me/" },
-        { name: "Morse Code Translator", url: "https://morsecode.world/international/translator.html" },
-        { name: "Lorem Ipsum Generator", url: "https://loremipsum.io/generator/" },
-        { name: "Code Beautify", url: "https://codebeautify.org/" },
-        { name: "Diff Checker", url: "https://www.diffchecker.com/" },
-        { name: "Character Counter", url: "https://wordcounter.net/" },
-        { name: "Markdown Editor", url: "https://dillinger.io/" },
-    ];
+    const utilsData = {
+        "Image & Design": [
+            { name: "Figma", url: "https://www.figma.com/" },
+            { name: "Photopea", url: "https://www.photopea.com/" },
+            { name: "Canva", url: "https://www.canva.com/" },
+            { name: "Remove.bg", url: "https://www.remove.bg/" },
+            { name: "TinyPNG", url: "https://tinypng.com/" },
+            { name: "Coolors", url: "https://coolors.co/" },
+        ],
+        "AI & Productivity": [
+            { name: "ChatGPT", url: "https://chat.openai.com/" },
+            { name: "Notion", url: "https://www.notion.so/" },
+            { name: "Grammarly", url: "https://www.grammarly.com/" },
+            { name: "Trello", url: "https://trello.com/" },
+            { name: "Todoist", url: "https://todoist.com/" },
+            { name: "Hemingway Editor", url: "https://hemingwayapp.com/" },
+        ],
+        "Maths & Science": [
+            { name: "Wolfram Alpha", url: "https://www.wolframalpha.com/" },
+            { name: "Desmos Graphing", url: "https://www.desmos.com/calculator" },
+            { name: "GeoGebra", url: "https://www.geogebra.org/" },
+            { name: "Symbolab", url: "https://www.symbolab.com/" },
+            { name: "Periodic Table", url: "https://ptable.com/" },
+        ],
+        "Reference & Learning": [
+            { name: "Wikipedia", url: "https://www.wikipedia.org/" },
+            { name: "Khan Academy", url: "https://www.khanacademy.org/" },
+            { name: "Coursera", url: "https://www.coursera.org/" },
+            { name: "Duolingo", url: "https://www.duolingo.com/" },
+        ],
+        "Coding & Development": [
+            { name: "GitHub", url: "https://github.com/" },
+            { name: "CodePen", url: "https://codepen.io/" },
+            { name: "Stack Overflow", url: "https://stackoverflow.com/" },
+            { name: "JSFiddle", url: "https://jsfiddle.net/" },
+            { name: "RegExr", url: "https://regexr.com/" },
+        ],
+        "File Conversion & Sharing": [
+            { name: "Convertio", url: "https://convertio.co/" },
+            { name: "WeTransfer", url: "https://wetransfer.com/" },
+            { name: "PDF24 Tools", url: "https://tools.pdf24.org/en/" },
+        ],
+        "Miscellaneous": [
+            { name: "Down Detector", url: "https://downdetector.com/" },
+            { name: "Temp-Mail", url: "https://temp-mail.org/" },
+            { name: "Random.org", url: "https://www.random.org/" },
+            { name: "URL Shortener", url: "https://bitly.com/" },
+        ],
+    };
 
     gamesLoader.setApps(gamesData);
     utilsLoader.setApps(utilsData);

@@ -8,8 +8,6 @@
   <link rel="icon" type="image/png" href="assets/FavIcon.ico">
   <link rel="stylesheet" href="assets/css/styles.min.css">
   <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
-  <script src="uv/uv.bundle.js"></script>
-  <script src="uv/uv.config.js"></script>
   <style>
     #loader {
       position: fixed;
@@ -72,7 +70,7 @@
       const loader = document.getElementById('loader');
       window.addEventListener('load', function() {
         loader.classList.add('hidden');
-        setTimeout(() => loader.remove(), 300);
+        setTimeout(() => loader.remove(), 2500);
       });
     });
   </script>

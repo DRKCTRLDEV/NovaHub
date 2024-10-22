@@ -1,58 +1,87 @@
-# T-NAU (Totally, Not An UnBlocker...)
+# T-NAU (Totally Not An UnBlocker)
+
+**NOTICE: The proxy and about:blank methods are currently being updated and recoded. We appreciate your patience during this improvement process.**
 
 T-NAU is a web-based application that provides a user-friendly interface for accessing online resources. It features a clean, dark-themed design with search functionality and sidebar navigation for games and utilities.
 
 ## Features
 
-- **Responsive Design**: Adapts to various screen sizes for an optimal user experience.
-- **Side Panels**: Provides fast, easy access to games and utilities.
-- **URL Bar**: Allows users to enter URLs directly.
-- **Proxy Functionality**: [WIP] Enables access to websites that require proxying. *(Currently works intermittently)*
-- **Search Engine**: [*Not Started*] Allows users to search for websites.
-- **Utilities**: [*WIP*] Provides a selection of inbuilt utilities. (See Credits for links)
-- **Games**: [*WIP*] Provides a selection of inbuilt games. (See Credits for links)
+- **Responsive Design**: Adapts to various screen sizes for optimal user experience.
+- **Side Panels**: Quick access to games and utilities.
+- **URL Bar**: Direct URL entry for navigation.
+- **Proxy Functionality**: [WIP] Access to websites requiring proxying. *(Currently intermittent)*
+- **Search Engine**: [Planned] Website search capability.
+- **Utilities**: [WIP] Selection of built-in tools. (See Credits)
+- **Games**: [WIP] Curated collection of online games. (See Credits)
 
-## Usage
+## Quick Start
 
-1. Open [drksrc.pages.dev](https://drksrc.pages.dev) in your web browser.
-2. Enter a URL in the search bar to navigate or use the server icon to proxy a website (required for some websites).
-3. Use the side buttons to access games and utilities:
-   - **Left Button**: Opens the games overlay.
-   - **Right Button**: Opens the utilities overlay.
-4. Close overlays by clicking outside of them, pressing the Arrow key (on desktop), or swiping Left/Right (on mobile).
-5. Use the search bar within the overlays to find specific items.
+1. Visit [drksrc.pages.dev](https://drksrc.pages.dev) in your web browser.
+2. Enter a URL in the search bar or use the server icon to proxy a website.
+3. Access games and utilities:
+   - **Left Button**: Opens games overlay.
+   - **Right Button**: Opens utilities overlay.
+4. Close overlays by clicking outside, pressing the Arrow key (desktop), or swiping Left/Right (mobile).
+5. Use the in-overlay search to find specific items.
 
-## Building
+## Development Setup
 
-**Note**: T-NAU requires [Node.js](https://nodejs.org/en) version 14 or higher. Make sure you have the correct version installed before proceeding with the build process. Additionally, you'll need [git](https://git-scm.com/downloads) to clone the repository, or alternatively, you can use tools like `curl` or `wget` to download the source code directly.
+**Prerequisites**: 
+- [Node.js](https://nodejs.org/en) v14+
+- [Git](https://git-scm.com/downloads) (or use `curl`/`wget` for direct download)
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/DrkSource/T-NAU.git
-   ```
-2. Navigate to the project directory:
-   ```
-   cd T-NAU
-   ```
-3. Install project dependencies:
-   ```
-   vnpm install && npm run build
-   ```
-4. Start the server:
-   ```
-   npm run server
-   ```
-5. Open your browser and visit `http://localhost:3000` to view the application.
+```bash
+# Clone the repository
+git clone https://github.com/DrkSource/T-NAU.git
+
+# Navigate to project directory
+cd T-NAU
+
+# Install dependencies and build
+npm install && npm run build
+
+# Start the server
+npm run server
+
+# Access the application at http://localhost:3000
+```
+
+## Credits
+
+- [@DrkSource](https://github.com/DrkSource) - Creator and main developer
+- [Titanium Network](https://github.com/titaniumnetwork-dev) - Ultraviolet proxy developers
+
+### Third-Party Resources
+
+T-NAU incorporates various open-source projects and resources, including:
+
+- **Games**: Paper.io, Superhex.io, Wordle, Starblast.io, Venge.io, 1v1.LOL, Diep.io, Krunker.io, Slither.io, Zombs Royale, and more.
+
+- **Utilities**: 
+  - Image & Design: ImageResizer, Photopea, Squoosh, Canva, Pixlr, Color Picker
+  - AI & Productivity: Blackbox AI, PrivNote, Scribens, Lorem Ipsum Generator
+  - Math & Science: GeoGebra, Desmos Graphing Calculator, Mathway
+  - Coding & Development: Code Beautify, Diff Checker
+  - Reference & Archives: Wikipedia, Archive.org
+  - Miscellaneous: Downfor.io, Morse Code Translator
+
+- **Technologies & Tools**:
+  - UI: FontAwesome
+  - Styling: Sass
+  - JavaScript: Terser
+  - Runtime: Node.js
+  - Version Control: Git
+  - Package Management: npm
+  - Proxy: Ultraviolet (Titanium Network)
+
+For a complete list of integrated games and utilities, please refer to the application's interface.
+
+We are committed to respecting the licences and attributions of all third-party resources. If you believe we've missed any important credits, please let us know, and we'll update accordingly.
 
 ## Contributing
 
-We welcome contributions to T-NAU! If you have any ideas or suggestions, please open an issue or submit a pull request.
+Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on how to submit pull requests, report issues, or suggest enhancements.
 
-## Credits
-- [@DrkSource](https://github.com/DrkSource) - Creator and main developer of T-NAU, including some integrated games (Work in Progress).
-- [@azz](https://github.com/azz) - Original creator of the Minesweeper game, which has been adapted for T-NAU.
-- [3kh0](https://github.com/3kh0) - Provider of various game resources integrated into T-NAU.
-- [Titanium Network](https://github.com/titaniumnetwork-dev) - Developers of the Ultraviolet proxy used in T-NAU.
-- [You!] - We welcome contributions from the community. Your ideas and code could be featured here!
+## Licence
 
-Special thanks to all open-source contributors whose work has made T-NAU possible.
+This project is licensed under the [MIT Licence](LICENCE.md).

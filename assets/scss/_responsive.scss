@@ -1,14 +1,21 @@
 @use '_variables.scss' as *;
 
 @media (max-width: 700px) {
-    .overlay-utils,
-    .overlay-games {
-        width: 100%;
-        height: 100%;
-    }
+    .overlay {
+        &-utils,
+        &-games {
+            width: 100%;
+            height: 100%;
+        }
 
-    .overlay-utils { right: -100%; }
-    .overlay-games { left: -100%; }
+        &-utils { right: -100%; }
+        &-games { left: -100%; }
+
+        border: 0px;
+        touch-action: pan-y;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
 
     #leftButton,
     #rightButton {
@@ -25,15 +32,7 @@
     #leftButton { left: 10px; }
     #rightButton { right: 10px; }
 
-    .overlay {
-        touch-action: pan-y;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
     .app-button,
-    .search-container input,
-    .search-container button,
     .side-button {
         &:hover,
         &:focus,
