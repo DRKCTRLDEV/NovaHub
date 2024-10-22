@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="darkreader-lock">
+  <title>T-NAU</title>
+  <link rel="icon" type="image/png" href="assets/FavIcon.ico">
+  <link rel="stylesheet" href="assets/css/styles.min.css">
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+  <script src="uv/uv.bundle.js"></script>
+  <script src="uv/uv.config.js"></script>
+  <style>
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: #0a0a0a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.3s ease-out;
+    }
+    #loader.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="loader">
+    <div class="loader"></div>
+  </div>
+  <main class="main">
+    <h1>T-NAU</h1>
+    <div class="search-container">
+      <input type="text" id="urlInput" placeholder="Enter URL...">
+      <i class="fas fa-search"></i>
+      <button title="Toggle Proxy">
+        <i class="fas fa-server"></i>
+      </button>
+    </div>
+  </main>
+  
+  <nav>
+    <button id="leftButton" class="side-button" aria-label="Left" data-overlay-target="gamesOverlay">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+    <button id="rightButton" class="side-button" aria-label="Right" data-overlay-target="utilsOverlay">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+  </nav>
+  
+  <aside id="gamesOverlay" class="overlay overlay-games">
+    <div class="search-container">
+      <input type="text" class="search-container__input" placeholder="Search games...">
+      <i class="fas fa-search search-container__icon"></i>
+    </div>
+  </aside>
+  
+  <aside id="utilsOverlay" class="overlay overlay-utils">
+    <div class="search-container">
+      <input type="text" class="search-container__input" placeholder="Search utilities...">
+      <i class="fas fa-search search-container__icon"></i>
+    </div>
+  </aside>
+  
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const loader = document.getElementById('loader');
+      window.addEventListener('load', function() {
+        loader.classList.add('hidden');
+        setTimeout(() => loader.remove(), 300);
+      });
+    });
+  </script>
+</body>
+</html>

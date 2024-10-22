@@ -1,0 +1,47 @@
+@use '_variables.scss' as *;
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  padding: 0 20px;
+
+  input,
+  button {
+    font-size: 1rem;
+    color: $text;
+    border: 2px solid $text;
+    transition: $time;
+    padding: 10px;
+    background: $bg-1;
+
+    &:hover,
+    &:focus {
+      background: $bg-2;
+      border-color: $pm-1;
+    }
+  }
+
+  input {
+    flex-grow: 1;
+    padding-right: 40px;
+    outline: none;
+  }
+
+  .fa-search {
+    position: absolute;
+    right: 80px;
+    pointer-events: none;
+  }
+
+  button {
+    margin-left: 5px;
+    cursor: pointer;
+
+    &.active {
+      background: darkgreen;
+    }
+  }
+}

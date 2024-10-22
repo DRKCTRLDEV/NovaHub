@@ -1,0 +1,9 @@
+@use '_variables.scss' as *;
+
+h1 {
+    font-size: 6rem;
+    transition: color $time;
+    &:hover {
+        color: $pm-1;
+    }
+}
