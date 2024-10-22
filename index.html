@@ -74,5 +74,27 @@
       });
     });
   </script>
+  <script>
+    function hideTabNames() {
+        const faviconUrl = document.querySelector('link[rel="icon"]').href;
+        const newTitle = 'My Drive - Google Drive';
+        
+        const observer = new MutationObserver(() => {
+            if (document.title !== newTitle) {
+                document.title = newTitle;
+            }
+        });
+        
+        observer.observe(document.querySelector('title'), { childList: true });
+        
+        const link = document.querySelector('link[rel="icon"]') || document.createElement('link');
+        link.type = 'image/x-icon';
+        link.rel = 'icon';
+        link.href = faviconUrl;
+        document.head.appendChild(link);
+    }
+    
+    hideTabNames();
+  </script>
 </body>
 </html>

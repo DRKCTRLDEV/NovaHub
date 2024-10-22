@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const buttons = document.querySelectorAll('[data-overlay-target]');
   const overlays = document.querySelectorAll('.overlay');
   const [leftButton, rightButton] = ['leftButton', 'rightButton'].map(id => document.getElementById(id));
 
@@ -15,14 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
     (button === leftButton ? rightButton : leftButton).classList.remove('active');
   }
 
-  buttons.forEach(button => {
-    button.addEventListener('click', () => toggleOverlay(button.dataset.overlayTarget, button));
-  });
-
   document.addEventListener('click', ({ target }) => {
-    if (!target.closest('.overlay.active') && !target.closest('[data-overlay-target]')) {
+    const button = target.closest('[data-overlay-target]');
+    if (button) {
+      toggleOverlay(button.dataset.overlayTarget, button);
+    } else if (!target.closest('.overlay.active') && !target.closest('[data-overlay-target]')) {
       overlays.forEach(overlay => overlay.classList.remove('active'));
-      buttons.forEach(btn => btn.classList.remove('active'));
+      [leftButton, rightButton].forEach(btn => btn.classList.remove('active'));
     }
   });
 

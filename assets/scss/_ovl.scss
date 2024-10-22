@@ -77,22 +77,21 @@
   }
 }
 
+#leftButton,
+#rightButton {
+  &.active {
+    transform: translateY(-50%) scaleX(-1);
+  }
+}
+
 #leftButton {
   left: 10px;
-
-  &.active {
-    left: calc(600px + 10px);
-    transform: scaleX(-1);
-  }
+  &.active { left: calc(600px + 10px); }
 }
 
 #rightButton {
   right: 10px;
-
-  &.active {
-    right: calc(600px + 10px);
-    transform: scaleX(-1);
-  }
+  &.active { right: calc(600px + 10px); }
 }
 
 .app-container {

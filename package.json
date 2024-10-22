@@ -4,10 +4,11 @@
     "scripts": {
       "build:css": "sass assets/scss/main.scss assets/css/styles.min.css --style=compressed --no-source-map",
       "build:fa": "sass assets/fontawesome/css/all.css assets/fontawesome/css/all.min.css --style=compressed --no-source-map",
-      "build:js": "terser assets/js/AppLoader.js assets/js/OverlayLoader.js --compress --mangle --output assets/js/main.js",
-      "build": "npm run build:css && npm run build:fa && npm run build:js",
-      "server": "http-server -p 3000",
-      "clean": "if exist assets\\css rmdir /s /q assets\\css && if exist assets\\js\\main.js del assets\\js\\main.js && if exist package-lock.json del package-lock.json && if exist node_modules rmdir /s /q node_modules && if exist assets\\fontawesome\\css\\all.min.css del assets\\fontawesome\\css\\all.min.css"
+      "build:js": "terser assets/js/AppLoader.js assets/js/OverlayLoader.js assets/js/Inputs.js --compress --mangle --output assets/js/main.js",
+      "build:cleanup": "rm -rf assets/js/AppLoader.js assets/js/OverlayLoader.js assets/js/Inputs.js assets/fontawesome/css/all.css assets/scss",
+      "build:dev": "npm run build:css && npm run build:fa && npm run build:js",
+      "build:production": "npm run build:css && npm run build:fa && npm run build:js && npm run build:cleanup",
+      "server": "http-server -p 3000"
     },
     "devDependencies": {
       "sass": "^1.32.0",

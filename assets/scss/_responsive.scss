@@ -2,6 +2,16 @@
 
 @media (max-width: 700px) {
     .overlay {
+        position: fixed;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: $bg-2;
+        transition: transform $time ease-in-out;
+        overflow-y: auto;
+        border: 0px;
+        touch-action: pan-y;
+
         &-utils,
         &-games {
             width: 100%;
@@ -10,11 +20,6 @@
 
         &-utils { right: -100%; }
         &-games { left: -100%; }
-
-        border: 0px;
-        touch-action: pan-y;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
     }
 
     #leftButton,
