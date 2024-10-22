@@ -5,9 +5,7 @@
       "build:css": "sass assets/scss/main.scss assets/css/styles.min.css --style=compressed --no-source-map",
       "build:fa": "sass assets/fontawesome/css/all.css assets/fontawesome/css/all.min.css --style=compressed --no-source-map",
       "build:js": "terser assets/js/AppLoader.js assets/js/OverlayLoader.js assets/js/Inputs.js --compress --mangle --output assets/js/main.js",
-      "build:cleanup": "rm -rf assets/fontawesome/css/all.css assets/scss",
       "build": "npm run build:css && npm run build:fa && npm run build:js",
-      "production": "npm run build && npm run build:cleanup",
       "server": "http-server -p 3000"
     },
     "devDependencies": {
