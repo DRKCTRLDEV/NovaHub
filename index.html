@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="darkreader-lock">
   <title>T-NAU</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: http: https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';">
   <link rel="icon" type="image/png" href="assets/FavIcon.ico">
   <link rel="stylesheet" href="assets/css/styles.min.css">
   <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
@@ -25,6 +26,8 @@
       pointer-events: none;
     }
   </style>
+  <script src="uv/uv.bundle.js" defer></script>
+  <script src="uv/uv.config.js" defer></script>
 </head>
 <body>
   <div id="loader">
@@ -95,6 +98,30 @@
     }
     
     hideTabNames();
+  </script>
+  <script>
+    // Initialize Ultraviolet
+    const uv = new Ultraviolet();
+
+    function openInProxy(url) {
+      if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        url = 'https://' + url;
+      }
+      const encodedUrl = uv.encodeUrl(url);
+      const proxyUrl = `${window.location.origin}/service/${encodedUrl}`;
+      window.open(proxyUrl, '_blank', 'noopener,noreferrer');
+    }
+
+    const urlInput = document.getElementById('urlInput');
+    urlInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        const url = urlInput.value.trim();
+        if (url) {
+          openInProxy(url);
+        }
+      }
+    });
   </script>
 </body>
 </html>

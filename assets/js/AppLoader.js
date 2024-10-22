@@ -40,7 +40,7 @@ class AppLoader {
         button.textContent = app.name;
         button.addEventListener('click', () => {
             const encodedUrl = encodeURIComponent(app.url);
-            const proxyUrl = `https://uv-worker.drksrcs.workers.dev/${encodedUrl}`;
+            const proxyUrl = `https://uv-worker.drksrcs.workers.dev/server/${encodedUrl}`;
             window.open(proxyUrl, '_blank', 'noopener,noreferrer');
         });
         return button;

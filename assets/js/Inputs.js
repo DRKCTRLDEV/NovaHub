@@ -5,16 +5,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let proxyEnabled = true;
 
     function openInProxy(url) {
+        if (!url.startsWith('http://') && !url.startsWith('https://')) {
+            url = 'https://' + url;
+        }
         const encodedUrl = encodeURIComponent(url);
-        const proxyUrl = `https://uv-worker.drksrcs.workers.dev/${encodedUrl}`;
+        const proxyUrl = `https://uv-worker.drksrcs.workers.dev/service/${encodedUrl}`;
         window.open(proxyUrl, '_blank', 'noopener,noreferrer');
     }
 
     urlInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
             event.preventDefault();
-            const url = urlInput.value;
-            openInProxy(url);
+            const url = urlInput.value.trim();
+            if (url) {
+                openInProxy(url);
+            }
         }
     });
 
