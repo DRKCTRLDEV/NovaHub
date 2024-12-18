@@ -1,6 +1,6 @@
 {
     "name": "t-nau",
-    "version": "1.0.0",
+    "version": "2.7.3",
     "scripts": {
         "build:css": "sass assets/scss/main.scss assets/css/styles.min.css --style=compressed --no-source-map",
         "build:fa": "sass assets/fontawesome/css/all.css assets/fontawesome/css/all.min.css --style=compressed --no-source-map",
