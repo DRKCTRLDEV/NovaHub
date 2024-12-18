@@ -52,7 +52,7 @@ npm run server
 
 ## Credits
 
-- [@DrkSource](https://github.com/DrkSource) - Creator and main developer
+- [@DRKCTRL](https://github.com/DRKCTRL) - Creator and main developer
 
 ### Third-Party Resources
 
@@ -82,7 +82,7 @@ We are committed to respecting the licences and attributions of all third-party 
 
 ## Contributing
 
-Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on how to submit pull requests, report issues, or suggest enhancements.
+Contributions are welcomed!
 
 ## Licence
 
