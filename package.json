@@ -2,18 +2,15 @@
     "name": "t-nau",
     "version": "1.0.0",
     "scripts": {
-      "build:css": "sass assets/scss/main.scss assets/css/styles.min.css --style=compressed --no-source-map",
-      "build:fa": "sass assets/fontawesome/css/all.css assets/fontawesome/css/all.min.css --style=compressed --no-source-map",
-      "build:js": "terser assets/js/AppLoader.js assets/js/OverlayLoader.js assets/js/Inputs.js --compress --mangle --output assets/js/main.js",
-      "build": "npm run build:css && npm run build:fa && npm run build:js",
-      "server": "http-server -p 3000"
+        "build:css": "sass assets/scss/main.scss assets/css/styles.min.css --style=compressed --no-source-map",
+        "build:fa": "sass assets/fontawesome/css/all.css assets/fontawesome/css/all.min.css --style=compressed --no-source-map",
+        "build:js": "terser  --compress --mangle --output assets/js/main.js",
+        "build": "npm run build:css && npm run build:fa",
+        "server": "http-server -p 3000"
     },
     "devDependencies": {
-      "sass": "^1.32.0",
-      "terser": "^5.0.0",
-      "http-server": "^14.1.1"
-    },
-    "dependencies": {
-      "@titaniumnetwork-dev/ultraviolet": "^2.0.0"
+        "http-server": "^14.1.1",
+        "sass": "^1.32.0",
+        "terser": "^5.0.0"
     }
 }

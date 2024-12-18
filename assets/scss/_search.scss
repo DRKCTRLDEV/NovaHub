@@ -1,47 +1,42 @@
-@use '_variables.scss' as *;
+@use '_variables' as *; 
 
 .search-container {
-  position: relative;
-  display: flex;
-  align-items: center;
   width: 100%;
   max-width: 500px;
-  padding: 0 20px;
-
-  input,
-  button {
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-size: 1.25rem;
+  input {
+    margin: 0 20px;
+    flex-grow: 1;
+    background: $bg-1;
+    border: 2px solid $text;
     font-size: 1rem;
     color: $text;
-    border: 2px solid $text;
-    transition: $time;
-    padding: 10px;
-    background: $bg-1;
-
+    padding: 10px 20px 10px 10px;
     &:hover,
-    &:focus {
+    &:focus,
+    &:active {
       background: $bg-2;
-      border-color: $pm-1;
+      border-color: $pm-2;
+      & + i {
+        color: $pm-2;
+      }
     }
   }
-
-  input {
-    flex-grow: 1;
-    padding-right: 40px;
-    outline: none;
-  }
-
-  .fa-search {
+  i {
     position: absolute;
-    right: 80px;
+    right: 30px;
     pointer-events: none;
   }
+}
 
-  button {
-    margin-left: 5px;
-    cursor: pointer;
-
-    &.active {
-      background: darkgreen;
-    }
+h1 {
+  font-size: 6rem;
+  transition: color $time;
+  white-space: nowrap;
+  &:hover {
+    color: $pm-2;
   }
 }

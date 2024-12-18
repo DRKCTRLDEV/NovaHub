@@ -1,0 +1,16 @@
+- Paper.io|https://paper-io.com/
+- Superhex.io|https://superhex.io/
+- Wordle|https://wordlegame.org/
+- Starblast.io|https://starblast.io/
+- Venge.io|https://venge.io/
+- Warbot.io|https://warbot.io/
+- 1v1.LOL|https://1v1.lol/
+- Diep.io|https://diep.io
+- Hole.io|https://hole-io.com
+- Krunker.io|https://krunker.io
+- nzp.gay|https://nzp.gay
+- Shell Shockers|https://algebra.monster
+- slither.io|https://slither.io
+- Zombs Royale|https://zombsroyale.io
+- Minesweeper|https://github.com/DRKCTRL
+- Sudoku|https://sudoku.com/

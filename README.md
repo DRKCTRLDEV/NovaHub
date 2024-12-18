@@ -1,6 +1,10 @@
 # T-NAU (Totally Not An UnBlocker)
 
-**NOTICE: The proxy and about:blank methods are currently being updated and recoded. We appreciate your patience during this improvement process.**
+## Project Status: Discontinued
+
+This repository has been archived and is no longer maintained. The project faced technical limitations that made further development impractical. No future updates are planned.
+
+---
 
 T-NAU is a web-based application that provides a user-friendly interface for accessing online resources. It features a clean, dark-themed design with search functionality and sidebar navigation for games and utilities.
 
@@ -9,7 +13,7 @@ T-NAU is a web-based application that provides a user-friendly interface for acc
 - **Responsive Design**: Adapts to various screen sizes for optimal user experience.
 - **Side Panels**: Quick access to games and utilities.
 - **URL Bar**: Direct URL entry for navigation.
-- **Proxy Functionality**: [WIP] Access to websites requiring proxying. *(Currently intermittent)*
+- **Proxy Functionality**: [WIP] Access to websites requiring proxying. *(NON FUNCTIONAL)*
 - **Search Engine**: [Planned] Website search capability.
 - **Utilities**: [WIP] Selection of built-in tools. (See Credits)
 - **Games**: [WIP] Curated collection of online games. (See Credits)
@@ -49,7 +53,6 @@ npm run server
 ## Credits
 
 - [@DrkSource](https://github.com/DrkSource) - Creator and main developer
-- [Titanium Network](https://github.com/titaniumnetwork-dev) - Ultraviolet proxy developers
 
 ### Third-Party Resources
 
@@ -72,7 +75,6 @@ T-NAU incorporates various open-source projects and resources, including:
   - Runtime: Node.js
   - Version Control: Git
   - Package Management: npm
-  - Proxy: Ultraviolet (Titanium Network)
 
 For a complete list of integrated games and utilities, please refer to the application's interface.
 
