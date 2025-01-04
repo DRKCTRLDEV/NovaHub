@@ -63,12 +63,11 @@
   <aside class="ovl-games"></aside>
   <aside class="ovl-utils"></aside>
   <aside class="ovl-config">
-    <h2>Configuration</h2>
     <div class="config-options">
       <div class="section">
         <h3>Appearance</h3>
         <div class="option">
-          <label for="theme">Theme:</label>
+          <label for="theme">Theme</label>
           <select id="theme">
             <option value="system">System</option>
             <option value="dark">Dark</option>
@@ -77,39 +76,50 @@
           </select>
         </div>
         <div class="option">
-          <label for="animations">Enable animations</label>
-          <input type="checkbox" id="animations">
+          <label for="animations">Enable Animations</label>
+          <input type="checkbox" id="animations" checked>
+        </div>
+        <div class="option">
+          <label for="customAccent">Accent Color</label>
+          <input type="color" id="customAccent">
         </div>
       </div>
       <div class="section">
-        <h3>Functionality</h3>
+        <h3>Privacy</h3>
         <div class="option">
-          <label for="proxy">Always use proxy</label>
+          <label for="proxy">Use Proxy?</label>
           <input type="checkbox" id="proxy">
         </div>
         <div class="option full-width">
-          <label for="customProxy">Custom Proxy URL</label>
-          <input type="text" id="customProxy" placeholder="https://proxy.example.com/service/">
+          <label for="proxyurl">Proxy URL</label>
+          <input type="text" id="proxyurl" placeholder="https://proxy.example.com/service/">
         </div>
-        <div class="option center">
-          <button id="resetProxy" class="reset-button">Reset Proxy</button>
-        </div>
+      </div>
+      <div class="section">
+        <h3>Notifications</h3>
         <div class="option">
           <label for="notifications">Show notifications</label>
-          <input type="checkbox" id="notifications">
+          <input type="checkbox" id="notifications" checked>
+        </div>
+        <div class="option">
+          <label for="notifSound">Notification sound</label>
+          <input type="checkbox" id="notifSound">
+        </div>
+      </div>
+      <div class="section">
+        <h3>Advanced</h3>
+        <div class="option">
+          <label for="experimental">Experimental features</label>
+          <input type="checkbox" id="experimental">
+        </div>
+        <div class="option center">
+          <button id="clearData" class="reset-button">Clear All Data</button>
         </div>
       </div>
     </div>
   </aside>
-  
+
   <script>addEventListener('load',_=>setTimeout(_=>loader.remove(),500))</script>
-  <script defer src="assets/js/AppsHandler.js"></script>
-  <script defer src="assets/js/OverlayHandler.js"></script>
-  <script defer src="assets/js/SettingsHandler.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        new SettingsHandler();
-    });
-  </script>
+  <script defer src="assets/js/main.js"></script>
 </body>
 </html>

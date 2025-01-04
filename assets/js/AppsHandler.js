@@ -104,10 +104,10 @@ class AppsHandler {
 
     proxyURL(url) {
         const settings = window.settingsHandler?.getAllSettings();
-        const customProxy = settings?.customProxy || 'https://uv.studentportal.lol/service/';
+        const proxyurl = settings?.proxyurl || 'https://uv.studentportal.lol/service/';
         
         try {
-            return `${customProxy}${btoa(url)}`;
+            return `${proxyurl}${btoa(url)}`;
         } catch (error) {
             console.error('Error creating proxy URL:', error);
             return url;

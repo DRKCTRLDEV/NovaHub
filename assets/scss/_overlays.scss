@@ -7,14 +7,16 @@
   z-index: 1000;
   border-radius: 0;
   transition: all 0.3s ease;
-  
+
   &.active {
     visibility: visible;
   }
 }
 
 .ovl {
-  &-games, &-utils {
+
+  &-games,
+  &-utils {
     @extend %overlay-base;
     width: 30%;
     height: 100%;
@@ -24,6 +26,7 @@
   &-games {
     border-right: 1px solid $border-color;
     left: -30%;
+
     &.active {
       left: 0;
     }
@@ -32,6 +35,7 @@
   &-utils {
     border-left: 1px solid $border-color;
     right: -30%;
+
     &.active {
       right: 0;
     }
@@ -40,66 +44,114 @@
   &-config {
     @extend %overlay-base;
     width: 100%;
-    height: 30%;
+    height: 35%;
     border-bottom: 1px solid $border-color;
-    top: -30%;
-    text-align: center;
+    top: -35%;
+    text-align: left;
     transition: top $time, visibility 0s $time;
     overflow-y: auto;
-    
-    &.active { 
+
+    &.active {
       top: 0;
       transition: top $time, visibility 0s;
     }
 
-    h2 {
-      font-size: 1.25rem;
-      padding: .25rem;
-      border-bottom: 1px solid $border-color;
-      background: $overlay-bg;
-      border-radius: 0;
-      position: sticky;
-      top: 0;
-      z-index: 3;
-    }
-
     .config-options {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: .25rem;
-      padding: .25rem;
-      max-width: 600px;
-      margin: 0 auto;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 1rem;
+      padding: 1rem;
+      max-width: none;
+      margin: 0;
 
       .section {
-        display: flex;
-        flex-direction: column;
-        gap: .25rem;
+        background: rgba($bg-2, 0.3);
+        padding: 1.25rem;
+        border-radius: 12px;
+        border: 1px solid rgba($border-color, 0.2);
 
         h3 {
-          font-size: 1rem;
-          margin-bottom: .125rem;
+          font-size: 1.1rem;
+          margin-bottom: 1rem;
+          padding-bottom: 0.5rem;
+          border-bottom: 1px solid rgba($border-color, 0.3);
+          color: $pm-2;
         }
       }
 
       .option {
-        min-height: 28px;
-        height: auto;
-        padding: .125rem .25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.75rem;
+        background: rgba($bg-1, 0.2);
+        border-radius: 8px;
+        margin-bottom: 0.75rem;
+        transition: background $time;
 
-        input[type="checkbox"] {
-          width: 16px;
-          height: 16px;
+        &:hover {
+          background: rgba($bg-1, 0.4);
+        }
+
+        &.full-width {
+          grid-column: 1 / -1;
+          display: grid;
+          grid-template-columns: auto 1fr;
+          align-items: center;
+        }
+
+        label {
+          font-weight: 500;
+          color: $text;
         }
 
         input[type="text"] {
-          height: 24px;
-          padding: 2px 6px;
+          cursor: text;
+        }
+
+        select,
+        input[type="text"],
+        input[type="color"] {
+          min-width: 140px;
+          padding: 0.5rem;
+          border-radius: 6px;
+          border: 1px solid $border-color;
+          background: $bg-1;
+
+          &:focus {
+            border-color: $pm-2;
+            box-shadow: 0 0 0 2px rgba($pm-2, 0.2);
+          }
+        }
+
+        input[type="checkbox"] {
+          width: 20px;
+          height: 20px;
+          border-radius: 4px;
+          cursor: pointer;
+
+          &:checked {
+            background-color: $pm-2;
+            border-color: $pm-2;
+          }
         }
 
         .reset-button {
-          height: 24px;
-          padding: 2px 6px;
+          padding: 0.5rem 1rem;
+          background: rgba($bg-2, 0.5);
+          border: 1px solid $border-color;
+          border-radius: 6px;
+          color: $text;
+          font-weight: 500;
+          transition: all $time;
+
+          &:hover {
+            background: rgba($pm-1, 0.1);
+            border-color: $pm-2;
+            color: $pm-2;
+            transform: translateY(-1px);
+          }
         }
       }
     }
@@ -125,125 +177,141 @@
       color: $pm-1;
     }
 
-    @each $s in (left,right) {
+    @each $s in (left, right) {
       &.#{$s} {
-        #{$s}:0;
-        margin-#{if($s=='left','right','left')}:-25px;
-        &.active{#{$s}:30%;transform:scaleX(-1)}
+        #{$s}: 0;
+        margin-#{if($s=='left','right','left')}: -25px;
+
+        &.active {
+          #{$s}: 30%;
+          transform: scaleX(-1)
+        }
       }
     }
 
     &.top {
-      top:0;
-      left:50%;
-      transform:translateX(-50%);
-      margin-left:0;
-      &.active{
-        top:30%;
-        transform:translateX(-50%) scaleY(-1);
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-left: 0;
+
+      &.active {
+        top: 35%;
+        transform: translateX(-50%) scaleY(-1);
       }
     }
   }
 
   @media(max-width:700px) {
-    top:0;
-    overflow-y:auto;
-    border:0;
-    touch-action:pan-y;
+    top: 0;
+    overflow-y: auto;
+    border: 0;
+    touch-action: pan-y;
 
-    &-utils,&-games,&-config {
-      width:100%;
-      height:100%;
+    &-utils,
+    &-games,
+    &-config {
+      width: 100%;
+      height: 100%;
     }
 
-    &-utils{right:-100%}
-    &-games{left:-100%}
-    &-config{top:-100%}
+    &-utils {
+      right: -100%
+    }
+
+    &-games {
+      left: -100%
+    }
+
+    &-config {
+      top: -100%
+    }
 
     &-button {
-      &.active{display:none}
+      &.active {
+        display: none
+      }
     }
   }
 }
 
 .overlay-search {
-    position: sticky;
-    top: 0;
-    padding: 1rem;
-    background: linear-gradient(to bottom,
-        $overlay-bg 70%,
-        rgba($overlay-bg, 0.8) 85%,
-        rgba($overlay-bg, 0) 100%
-    );
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    position: relative;
-    font-size: 1.25rem;
-    
-    input {
-        width: 100%;
-        padding: 10px 40px 10px 10px;
-        border-radius: 8px;
-        border: 2px solid $text;
-        background: $bg-1;
-        color: $text;
-        font-size: 1rem;
-        margin: 0;
-        
-        &:hover,
-        &:focus,
-        &:active {
-            background: $bg-2;
-            border-color: $pm-2;
-            outline: none;
-            
-            & + i {
-                color: $pm-2;
-            }
-        }
-        
-        &::placeholder {
-            color: rgba($text, 0.6);
-        }
+  position: sticky;
+  top: 0;
+  padding: 1rem;
+  background: linear-gradient(to bottom,
+      $overlay-bg 70%,
+      rgba($overlay-bg, 0.8) 85%,
+      rgba($overlay-bg, 0) 100%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-size: 1.25rem;
+
+  input {
+    width: 100%;
+    padding: 10px 40px 10px 10px;
+    border-radius: 8px;
+    border: 2px solid $border-color;
+    background: $bg-1;
+    color: $text;
+    font-size: 1rem;
+    margin: 0;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: $bg-2;
+      border-color: $pm-2;
+      outline: none;
+
+      &+i {
+        color: $pm-2;
+      }
     }
 
-    i {
-        position: absolute;
-        right: 30px;
-        pointer-events: none;
-        color: $text;
+    &::placeholder {
+      color: rgba($text, 0.6);
     }
+  }
+
+  i {
+    position: absolute;
+    right: 30px;
+    pointer-events: none;
+    color: $text;
+  }
 }
 
 .overlay-content {
-    padding: 1rem;
-    margin-top: -1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    max-height: calc(100% - 4rem);
-    overflow-y: auto;
-    position: relative;
-    z-index: 1;
+  padding: 1rem;
+  margin-top: -1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: calc(100% - 4rem);
+  overflow-y: auto;
+  position: relative;
+  z-index: 1;
 
-    button {
-        text-align: center;
-        padding: 0.5rem 0.75rem;
-        height: 40px;
-        transition: all $time;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-        background: $bg-2;
-        border: 2px solid $border-color;
-        
-        &:hover {
-            transform: translateX(5px);
-            border-color: $pm-2;
-            background: rgba($pm-1, 0.1);
-            color: $pm-2;
-        }
+  button {
+    text-align: center;
+    padding: 0.5rem 0.75rem;
+    height: 40px;
+    transition: all $time;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    background: $bg-1;
+    border: 2px solid $border-color;
+
+    &:hover {
+      border-color: $pm-2;
+      background: $bg-2;
+      color: $pm-2;
+      transform: scale(1.03);
     }
+  }
 }

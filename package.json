@@ -4,8 +4,8 @@
     "scripts": {
         "build:css": "sass assets/scss/main.scss assets/css/styles.min.css --style=compressed --no-source-map",
         "build:fa": "sass assets/fontawesome/css/all.css assets/fontawesome/css/all.min.css --style=compressed --no-source-map",
-        "build:js": "terser  --compress --mangle --output assets/js/main.js",
-        "build": "npm run build:css && npm run build:fa",
+        "build:js": "terser assets/js/AppsHandler.js assets/js/OverlayHandler.js assets/js/SettingsHandler.js --compress --mangle --output assets/js/main.js",
+        "build": "npm run build:css && npm run build:fa && npm run build:js",
         "server": "http-server -p 3000"
     },
     "devDependencies": {
