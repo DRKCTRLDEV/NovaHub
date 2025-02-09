@@ -1,5 +1,4 @@
 # T-NAU (Totally Not An UnBlocker)
----
 
 T-NAU is a web-based application that provides a user-friendly interface for accessing online resources. It features a clean, dark-themed design with search functionality and sidebar navigation for games and utilities.
 
