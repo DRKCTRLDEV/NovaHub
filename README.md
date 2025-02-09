@@ -1,9 +1,4 @@
 # T-NAU (Totally Not An UnBlocker)
-
-## Project Status: Discontinued
-
-This repository has been archived and is no longer maintained. The project faced technical limitations that made further development impractical. No future updates are planned.
-
 ---
 
 T-NAU is a web-based application that provides a user-friendly interface for accessing online resources. It features a clean, dark-themed design with search functionality and sidebar navigation for games and utilities.
