@@ -14,7 +14,7 @@ T-NAU is a web-based application that provides a user-friendly interface for acc
 
 ## Quick Start
 
-1. Visit [drksrc.pages.dev](https://drksrc.pages.dev) in your web browser.
+1. Visit [toteznotdrk.pages.dev](https://toteznotdrk.pages.dev) in your web browser.
 2. Enter a URL in the search bar or use the server icon to proxy a website.
 3. Access games and utilities:
    - **Left Button**: Opens games overlay.
@@ -30,7 +30,7 @@ T-NAU is a web-based application that provides a user-friendly interface for acc
 
 ```bash
 # Clone the repository
-git clone https://github.com/DrkSource/T-NAU.git
+git clone https://github.com/DRKCTRLDEV/T-NAU.git
 
 # Navigate to project directory
 cd T-NAU
@@ -46,7 +46,7 @@ npm run server
 
 ## Credits
 
-- [@DRKCTRL](https://github.com/DRKCTRL) - Creator and main developer
+- [@DRKCTRLDEV](https://github.com/DRKCTRLDEV) - Creator and main developer
 
 ### Third-Party Resources
 
