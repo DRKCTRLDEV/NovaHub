@@ -1,6 +1,6 @@
-# T-NAU (Totally Not An UnBlocker)
+# NovaHub (Next-Gen Web Hub)
 
-T-NAU is a web-based application that provides a user-friendly interface for accessing online resources. It features a clean, dark-themed design with search functionality and sidebar navigation for games and utilities.
+NovaHub is a web-based application that provides a user-friendly interface for accessing online resources. It features a clean, dark-themed design with search functionality and sidebar navigation for games and utilities.
 
 ## Features
 
@@ -30,10 +30,10 @@ T-NAU is a web-based application that provides a user-friendly interface for acc
 
 ```bash
 # Clone the repository
-git clone https://github.com/DRKCTRLDEV/T-NAU.git
+git clone https://github.com/DRKCTRLDEV/NovaHub.git
 
 # Navigate to project directory
-cd T-NAU
+cd NovaHub
 
 # Install dependencies and build
 npm install && npm run build
@@ -50,7 +50,7 @@ npm run server
 
 ### Third-Party Resources
 
-T-NAU incorporates various open-source projects and resources, including:
+NovaHub incorporates various open-source projects and resources, including:
 
 - **Games**: Paper.io, Superhex.io, Wordle, Starblast.io, Venge.io, 1v1.LOL, Diep.io, Krunker.io, Slither.io, Zombs Royale, and more.
 
